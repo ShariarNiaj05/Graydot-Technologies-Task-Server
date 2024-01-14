@@ -7,7 +7,11 @@ const port = process.env.PORT || 5000;
 
 app.use(cors({
     origin: [
-        'http://localhost:5173',],
+        'http://localhost:5173',
+        'http://localhost:5174',
+        'https://graydot-task.web.app',
+        'https://graydot-task.firebaseapp.com',
+    ],
 
 }))
 app.use(express.json());
@@ -37,7 +41,7 @@ async function run() {
             const usersCount = await grayDotCollection?.estimatedDocumentCount()
             console.log(usersCount);
             // res.sendStatus(usersCount)
-            res.send({result, usersCount})
+            res.send({ result, usersCount })
         })
 
 
